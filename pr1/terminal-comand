@@ -1,0 +1,5 @@
+1) Create and initialization database:     |
+    flask --app pr1 init-db                |
+                                           | pr1 - name app catalog
+2) Start app server (flask server)         |
+    flask --app pr1 --debug run            |
