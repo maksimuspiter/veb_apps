@@ -1,0 +1,4 @@
+include pr1/schema.sql
+graft pr1/static
+graft pr1/templates
+global-exclude *.pyc
