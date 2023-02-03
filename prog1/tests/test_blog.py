@@ -1,5 +1,5 @@
 import pytest
-from pr1.db import get_db
+from prog1.pr1.db import get_db
 
 
 def test_index(client, auth):

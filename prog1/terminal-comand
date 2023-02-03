@@ -13,3 +13,7 @@ if you change the metadata about the project, such      |
 as its dependencies.                                    |
                                                         |
     pip install -e .            --project               |
+
+4) testing:                                             |
+    pytest // pytest -v --> start testing               |
+    coverage run -m pytest --> show coverage report     |

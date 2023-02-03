@@ -1,4 +1,4 @@
-from pr1 import create_app
+from prog1.pr1 import create_app
 
 
 def test_config():

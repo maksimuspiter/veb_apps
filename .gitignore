@@ -38,10 +38,10 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
-htmlcov/
+prog1/htmlcov/
 .tox/
 .nox/
-.coverage
+prog1/.coverage
 .coverage.*
 .cache
 nosetests.xml
@@ -49,7 +49,7 @@ coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
-.pytest_cache/
+prog1/.pytest_cache/
 
 # Translations
 *.mo
@@ -62,7 +62,7 @@ db.sqlite3
 db.sqlite3-journal
 
 # Flask stuff:
-instance/
+prog1/instance/
 .webassets-cache
 
 # Scrapy stuff:

@@ -4,7 +4,7 @@ from flask import (
     request, session, url_for
 )
 from werkzeug.security import check_password_hash, generate_password_hash
-from pr1.db import get_db
+from prog1.pr1.db import get_db
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 

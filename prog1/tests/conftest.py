@@ -2,8 +2,8 @@ import os
 import tempfile
 
 import pytest
-from pr1 import create_app
-from pr1.db import get_db, init_db
+from prog1.pr1 import create_app
+from prog1.pr1.db import get_db, init_db
 
 with open(os.path.join(os.path.dirname(__file__), 'data.sql'), 'rb') as f:
     _data_sql = f.read().decode('utf8')
