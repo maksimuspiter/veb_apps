@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for
+    Blueprint, flash, g, redirect, render_template, request, url_for, session
 )
 from werkzeug.exceptions import abort
 
@@ -99,3 +99,48 @@ def delete(id):
     db.execute('DELETE FROM post WHERE id = ?', (id,))
     db.commit()
     return redirect(url_for('blog.index'))
+
+
+@bp.route('/admin/all_users')
+def show_all_users():
+    user_id = session.get('user_id')
+    if user_id == 1:
+        """
+                'SELECT p.id, title, body, created, author_id, username'
+                ' FROM post p JOIN user u ON p.author_id = u.id'
+                ' ORDER BY p.id'
+        """
+
+        db = get_db()
+        users = db.execute(
+            #'SELECT * FROM user'
+            'SELECT p.id, title, created, author_id, username'
+            ' FROM post p JOIN user u ON p.author_id = u.id'
+            ' ORDER BY p.id'
+        ).fetchall()
+        return render_template('blog/show_users.html', users=users)
+    else:
+        flash("You don't have permissions to access this page")
+        return redirect(url_for('blog.index'))
+
+
+# @bp.route('/admin/user/<int:id_user>')
+# def show_user(id_user: int):
+#     user_id = session.get('user_id')
+#     print(user_id)
+#     if user_id == 1:
+#
+#         db = get_db()
+#         user = db.execute(
+#             'SELECT id, username FROM user WHERE id = ?', (id_user,)
+#         )
+#         print(user)
+#         posts = db.execute(
+#             'SELECT id, title, body, created'
+#             ' FROM post WHERE author_id = ?'
+#             ' ORDER BY created DESC', (id_user,)
+#         ).fetchall()
+#         return render_template('blog/show_user_by_id.html', user=user, posts=posts)
+#     else:
+#         flash("You don't have permissions to access this page")
+#         return redirect(url_for('blog.index'))
